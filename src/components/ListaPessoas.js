@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useRoute} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import {api} from '../../service/api';
 
 const ListaPessoas = () => {
   const [pessoa, setPessoa] = useState({});
   const [dose, setDose] = useState([]);
   const route = useRoute();
 
-  const user = route.params.data;
+  const user = route.params?.data;
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     setPessoa(user);
@@ -16,7 +19,18 @@ const ListaPessoas = () => {
   }, [user]);
 
   const editar = () => {
-    console.log('Olá');
+    navigation.navigate('EditarPessoas', {data: user});
+  };
+
+  const deletar = () => {
+    console.log(pessoa.id);
+    api
+      .delete(`pessoas/${pessoa.id}`)
+      .then((res) => {
+        alert('Excluido com sucesso');
+        navigation.navigate('Home', {data: user});
+      })
+      .catch((err) => alert(`Erro ao excluir ${err}`));
   };
 
   return (
@@ -96,7 +110,7 @@ const ListaPessoas = () => {
             <Text style={{color: '#fff', fontSize: 22}}>Editar</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btnExcluir} onPress={editar}>
+        <TouchableOpacity style={styles.btnExcluir} onPress={deletar}>
           <View style={styles.itemsGroup}>
             <Icon
               style={{marginRight: 8}}
@@ -108,6 +122,23 @@ const ListaPessoas = () => {
           </View>
         </TouchableOpacity>
       </View>
+      {dose?.length > 2 ? (
+        <Text>Aplicado</Text>
+      ) : (
+        <TouchableOpacity
+          style={styles.btnVacinar}
+          onPress={() => navigation.navigate('AplicarDose', {data: user})}>
+          <View style={styles.itemsGroup}>
+            <Icon
+              style={{marginRight: 8}}
+              name="plus-circle"
+              size={30}
+              color="white"
+            />
+            <Text style={{color: '#fff', fontSize: 22}}>Nova Dose</Text>
+          </View>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -151,6 +182,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 7,
   },
+  btnVacinar: {
+    marginTop: 20,
+    backgroundColor: '#28B47F',
+    padding: 8,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderRadius: 7,
+  },
+
   itemsAction: {
     marginTop: 14,
     flexDirection: 'row',
