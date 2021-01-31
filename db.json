@@ -1,60 +1,37 @@
 {
   "pessoas": [
     {
-      "id": "1",
       "nome": "Lucas",
-      "idade": 22,
+      "idade": "22",
       "cpf": "00022255588",
-      "grupo_risco": true,
+      "grupo_risco": false,
       "sintomas": false,
-      "dose": [
-        {
-          "id": 1,
-          "data": "30/01/2021",
-          "hora": "12:30",
-          "local": "Posto de Saúde Centro"
-        }
-      ],
-      "reacao": false,
-      "rua": "Av. Amazonas",
-      "numero": 718,
-      "bairro": "centro",
       "cidade": "Belo Horizonte",
-      "estado": "Minas Gerais"
-    },
-    {
+      "bairro": "centro",
+      "rua": "Av. Amazonas",
+      "numero": "718",
+      "estado": "Minas Gerais",
       "id": "2",
-      "nome": "Lucas",
-      "cpf": "00022255588",
-      "idade": 22,
-      "grupo_risco": true,
-      "sintomas": false,
       "dose": [
         {
           "id": 1,
-          "data": "30/01/2021",
-          "hora": "12:30",
-          "local": "Posto de Saúde Centro"
+          "local": "Maria",
+          "hora": "15/4",
+          "data": "31/01/2021"
         },
         {
           "id": 2,
-          "data": "10/03/2021",
-          "hora": "15:30",
-          "local": "Posto de Saúde Barreiro"
+          "local": "Brasilia",
+          "hora": "15/5",
+          "data": "31/01/2021"
         }
-      ],
-      "reacao": false,
-      "rua": "Av. Amazonas",
-      "numero": 718,
-      "bairro": "centro",
-      "cidade": "Belo Horizonte",
-      "estado": "Minas Gerais"
+      ]
     },
     {
       "nome": "Pablo Rafael Oliveira ",
-      "idade": "",
+      "idade": "25",
       "cpf": "05052842350",
-      "grupo_risco": false,
+      "grupo_risco": true,
       "sintomas": "False",
       "cidade": "Belo Horizonte",
       "bairro": "Centro",
@@ -62,11 +39,24 @@
       "numero": "718",
       "estado": "Minas Gerais",
       "id": "ffy7vxY",
-      "dose": []
+      "dose": [
+        {
+          "id": 1,
+          "local": "Polak,mks",
+          "hora": "15/7",
+          "data": "31/01/2021"
+        },
+        {
+          "id": 2,
+          "local": "Poaklms ajskla ",
+          "hora": "15/8",
+          "data": "31/01/2021"
+        }
+      ]
     },
     {
       "nome": "Marcos da Silva",
-      "idade": "",
+      "idade": "22",
       "cpf": "5231521521512",
       "grupo_risco": "25",
       "sintomas": "False",
