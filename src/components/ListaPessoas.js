@@ -15,7 +15,7 @@ const ListaPessoas = () => {
   useEffect(() => {
     setPessoa(user);
     setDose(user?.dose);
-  }, []);
+  }, [user]);
 
   const editar = () => {
     navigation.navigate('EditarPessoas', {data: user});
@@ -110,17 +110,23 @@ const ListaPessoas = () => {
           </View>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.btnVacinar} onPress={editar}>
-        <View style={styles.itemsGroup}>
-          <Icon
-            style={{marginRight: 8}}
-            name="plus-circle"
-            size={30}
-            color="white"
-          />
-          <Text style={{color: '#fff', fontSize: 22}}>Nova Dose</Text>
-        </View>
-      </TouchableOpacity>
+      {dose?.length > 2 ? (
+        <Text>Aplicado</Text>
+      ) : (
+        <TouchableOpacity
+          style={styles.btnVacinar}
+          onPress={() => navigation.navigate('AplicarDose', {data: user})}>
+          <View style={styles.itemsGroup}>
+            <Icon
+              style={{marginRight: 8}}
+              name="plus-circle"
+              size={30}
+              color="white"
+            />
+            <Text style={{color: '#fff', fontSize: 22}}>Nova Dose</Text>
+          </View>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

@@ -2,27 +2,6 @@
   "pessoas": [
     {
       "nome": "Lucas",
-      "idade": "25",
-      "cpf": "00022255588",
-      "grupo_risco": true,
-      "sintomas": false,
-      "cidade": "Belo Horizonte",
-      "bairro": "centro",
-      "rua": "Av. Amazonas",
-      "numero": "718",
-      "estado": "Minas Gerais",
-      "dose": [
-        {
-          "id": 1,
-          "data": "30/01/2021",
-          "hora": "12:30",
-          "local": "Posto de Saúde Centro"
-        }
-      ],
-      "id": "1"
-    },
-    {
-      "nome": "Lucas",
       "idade": "22",
       "cpf": "00022255588",
       "grupo_risco": false,
@@ -33,7 +12,20 @@
       "numero": "718",
       "estado": "Minas Gerais",
       "id": "2",
-      "dose": []
+      "dose": [
+        {
+          "id": 1,
+          "local": "Maria",
+          "hora": "15/4",
+          "data": "31/01/2021"
+        },
+        {
+          "id": 2,
+          "local": "Brasilia",
+          "hora": "15/5",
+          "data": "31/01/2021"
+        }
+      ]
     },
     {
       "nome": "Pablo Rafael Oliveira ",
@@ -47,7 +39,20 @@
       "numero": "718",
       "estado": "Minas Gerais",
       "id": "ffy7vxY",
-      "dose": []
+      "dose": [
+        {
+          "id": 1,
+          "local": "Polak,mks",
+          "hora": "15/7",
+          "data": "31/01/2021"
+        },
+        {
+          "id": 2,
+          "local": "Poaklms ajskla ",
+          "hora": "15/8",
+          "data": "31/01/2021"
+        }
+      ]
     },
     {
       "nome": "Marcos da Silva",

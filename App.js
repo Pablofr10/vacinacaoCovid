@@ -6,6 +6,7 @@ import Home from './src/Home';
 import ListaPessoas from './src/components/ListaPessoas';
 import Cadastro from './src/Cadastro';
 import EditarPessoas from './src/components/EditarPessoas';
+import AplicarDose from './src/components/AplicarDose';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ const App = () => {
         <Stack.Screen name="ListaPessoas" component={ListaPessoas} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="EditarPessoas" component={EditarPessoas} />
+        <Stack.Screen name="AplicarDose" component={AplicarDose} />
       </Stack.Navigator>
     </NavigationContainer>
   );

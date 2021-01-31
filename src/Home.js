@@ -15,7 +15,7 @@ const Home = () => {
       .get('pessoas')
       .then((res) => setPessoas(res.data))
       .catch((err) => alert(`Erro ao carregar ${err}`));
-  }, []);
+  }, [pessoas]);
 
   return (
     <View>
