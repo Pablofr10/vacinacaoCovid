@@ -61,7 +61,8 @@
       "rua": "Quadra 17",
       "numero": "718",
       "estado": "Minas Gerais",
-      "id": "ffy7vxY"
+      "id": "ffy7vxY",
+      "dose": []
     },
     {
       "nome": "Marcos da Silva",
@@ -74,7 +75,8 @@
       "rua": "Quadra 16 Lote 65",
       "numero": "718",
       "estado": "Minas Gerais",
-      "id": "VmYirv5"
+      "id": "VmYirv5",
+      "dose": []
     }
   ]
 }

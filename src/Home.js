@@ -49,14 +49,14 @@ const Home = () => {
               </View>
             </View>
             <View style={styles.items}>
-              {item.dose.length > 1 ? (
+              {item?.dose.length > 1 ? (
                 <View style={styles.items}>
                   <Text style={styles.txt}>Imunizado </Text>
                   <Icon name="check" color="green" size={25} />
                 </View>
               ) : (
                 <Text style={styles.txt}>
-                  Pendente {2 - item.dose.length} dose
+                  Pendente {2 - item?.dose.length} dose
                 </Text>
               )}
             </View>
