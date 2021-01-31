@@ -17,18 +17,12 @@ const Home = () => {
       .catch((err) => alert(`Erro ao carregar ${err}`));
   }, []);
 
-  const adicionar = () => {
-    navigation.navigate('Cadastro');
-  };
-
-  const ver = (pessoa) => {
-    navigation.navigate('ListaPessoas', {data: pessoa});
-  };
-
   return (
     <View>
       <Text style={styles.titulo}>Cadastro Vacinados</Text>
-      <TouchableOpacity style={styles.btnAdicionar} onPress={adicionar}>
+      <TouchableOpacity
+        style={styles.btnAdicionar}
+        onPress={() => navigation.navigate('Cadastro')}>
         <View style={styles.itemsGroup}>
           <Icon style={{marginRight: 8}} name="plus" size={25} color="white" />
           <Text style={{color: '#fff', fontSize: 17}}>Adicionar</Text>
@@ -37,7 +31,9 @@ const Home = () => {
       <FlatList
         data={pessoas}
         renderItem={({item}) => (
-          <TouchableOpacity onPress={ver(item)} style={styles.container}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ListaPessoas', {data: item})}
+            style={styles.container}>
             <View style={styles.itemsGroup}>
               <View style={styles.items}>
                 <Text style={styles.txtLabel}>Nome: </Text>

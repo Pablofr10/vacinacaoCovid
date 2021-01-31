@@ -9,23 +9,45 @@ import {
 } from 'react-native';
 
 import {Picker} from '@react-native-picker/picker';
-import {api} from '../service/api';
-import {useNavigation} from '@react-navigation/native';
+import {api} from '../../service/api';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import {useEffect} from 'react';
 
-const Cadastro = () => {
-  const [pessoa, setPessoa] = useState({});
+const EditarPessoa = () => {
+  const [id, setId] = useState('');
   const [nome, setNome] = useState('');
   const [cpf, setCpf] = useState('');
   const [idade, setIdade] = useState('');
   const [rua, setRua] = useState('');
-  const [numero, setNumero] = useState('');
+  const [numero, setNumero] = useState(0);
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [estado, setEstado] = useState('');
   const [grupoRisco, setGrupoRisco] = useState(false);
   const [sintomas, setSintomas] = useState(false);
+  const [dose, setDose] = useState([]);
 
   const navigation = useNavigation();
+
+  const route = useRoute();
+
+  const user = route.params?.data;
+
+  useEffect(() => {
+    console.log(user);
+    setId(user.id);
+    setNome(user.nome);
+    setCpf(user.cpf);
+    setIdade(user.idade);
+    setRua(user.rua);
+    setNumero(user.numero);
+    setBairro(user.bairro);
+    setCidade(user.cidade);
+    setEstado(user.estado);
+    setGrupoRisco(user.grupo_risco);
+    setSintomas(user.sintomas);
+    setDose(user.dose);
+  }, [user]);
 
   const salvar = () => {
     const tempPessoa = {
@@ -39,12 +61,12 @@ const Cadastro = () => {
       rua,
       numero,
       estado,
-      dose: [],
+      dose,
     };
     api
-      .post('pessoas', tempPessoa)
+      .put(`pessoas/${id}`, tempPessoa)
       .then((res) => {
-        alert('Adicionado');
+        alert('Editado com sucesso!');
         navigation.navigate('Home');
       })
       .catch((err) => alert('Erro ao adicionar' + err));
@@ -55,42 +77,49 @@ const Cadastro = () => {
       <View style={styles.container}>
         <TextInput
           style={styles.input}
+          value={nome}
           onChangeText={(txt) => setNome(txt)}
           placeholder="Nome"
         />
-
         <TextInput
           style={styles.input}
+          value={idade}
           onChangeText={(txt) => setIdade(txt)}
           placeholder="Idade"
         />
         <TextInput
           style={styles.input}
+          value={cpf}
           onChangeText={(txt) => setCpf(txt)}
           placeholder="CPF"
         />
         <TextInput
           style={styles.input}
+          value={rua}
           onChangeText={(txt) => setRua(txt)}
           placeholder="Rua"
         />
         <TextInput
           style={styles.input}
+          value={bairro}
           onChangeText={(txt) => setBairro(txt)}
           placeholder="Bairro"
         />
         <TextInput
           style={styles.input}
+          value={numero}
           onChangeText={(txt) => setNumero(txt)}
           placeholder="Número"
         />
         <TextInput
           style={styles.input}
+          value={cidade}
           onChangeText={(txt) => setCidade(txt)}
           placeholder="Cidade"
         />
         <TextInput
           style={styles.input}
+          value={estado}
           onChangeText={(txt) => setEstado(txt)}
           placeholder="Estado"
         />
@@ -114,6 +143,18 @@ const Cadastro = () => {
             <Picker.Item label="Não" value={false} />
           </Picker>
         </View>
+      </View>
+      <View style={styles.itemsGroup}>
+        {dose.map((x) => (
+          <View>
+            <Text style={{fontSize: 18, textAlign: 'center'}}>
+              {x.id == 1 ? 'Primeira' : 'Segunda'} Dose
+            </Text>
+            <Text>
+              Data: {x.local} {x.data} {x.hora}
+            </Text>
+          </View>
+        ))}
       </View>
       <TouchableOpacity style={styles.btnAdicionar} onPress={salvar}>
         <Text style={{color: '#fff', fontSize: 17, textAlign: 'center'}}>
@@ -149,4 +190,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Cadastro;
+export default EditarPessoa;

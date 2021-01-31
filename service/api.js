@@ -14,7 +14,7 @@ export const api = {
   delete(endpoint) {
     return axiosService.delete(endpoint);
   },
-  put(endpoint) {
-    return axiosService.put(endpoint);
+  put(endpoint, body) {
+    return axiosService.put(endpoint, body);
   },
 };

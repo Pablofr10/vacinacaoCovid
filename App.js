@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from './src/Home';
 import ListaPessoas from './src/components/ListaPessoas';
 import Cadastro from './src/Cadastro';
+import EditarPessoas from './src/components/EditarPessoas';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,7 @@ const App = () => {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ListaPessoas" component={ListaPessoas} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
+        <Stack.Screen name="EditarPessoas" component={EditarPessoas} />
       </Stack.Navigator>
     </NavigationContainer>
   );
