@@ -42,7 +42,7 @@ const Cadastro = () => {
           placeholder="Nome"
         />
         <Picker
-          selectedValue={this.state.language}
+          selectedValue={sintomas}
           style={{height: 50, width: 100}}
           onValueChange={(txt) => setSintomas(txt)}>
           <Picker.Item label="Java" value="java" />
