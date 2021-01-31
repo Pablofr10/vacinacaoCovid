@@ -64,10 +64,10 @@ const EditarPessoa = () => {
       dose,
     };
     api
-      .put(`pessoas/${id}`, tempPessoa)
+      .patch(`pessoas/${id}`, tempPessoa)
       .then((res) => {
         alert('Editado com sucesso!');
-        navigation.navigate('Home');
+        navigation.navigate('Home', {data: user});
       })
       .catch((err) => alert('Erro ao adicionar' + err));
   };
@@ -144,14 +144,14 @@ const EditarPessoa = () => {
           </Picker>
         </View>
       </View>
-      <View style={styles.itemsGroup}>
+      <View>
         {dose.map((x) => (
           <View>
             <Text style={{fontSize: 18, textAlign: 'center'}}>
               {x.id == 1 ? 'Primeira' : 'Segunda'} Dose
             </Text>
-            <Text>
-              Data: {x.local} {x.data} {x.hora}
+            <Text style={{alignSelf: 'center'}}>
+              {x.local} {x.data} {x.hora}
             </Text>
           </View>
         ))}

@@ -13,7 +13,6 @@ import {api} from '../service/api';
 import {useNavigation} from '@react-navigation/native';
 
 const Cadastro = () => {
-  const [pessoa, setPessoa] = useState({});
   const [nome, setNome] = useState('');
   const [cpf, setCpf] = useState('');
   const [idade, setIdade] = useState('');
@@ -45,7 +44,7 @@ const Cadastro = () => {
       .post('pessoas', tempPessoa)
       .then((res) => {
         alert('Adicionado');
-        navigation.navigate('Home');
+        navigation.navigate('Home', {data: tempPessoa});
       })
       .catch((err) => alert('Erro ao adicionar' + err));
   };

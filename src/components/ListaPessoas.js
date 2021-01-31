@@ -28,7 +28,7 @@ const ListaPessoas = () => {
       .delete(`pessoas/${pessoa.id}`)
       .then((res) => {
         alert('Excluido com sucesso');
-        navigation.navigate('Home');
+        navigation.navigate('Home', {data: user});
       })
       .catch((err) => alert(`Erro ao excluir ${err}`));
   };

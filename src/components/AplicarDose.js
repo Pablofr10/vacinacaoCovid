@@ -59,7 +59,7 @@ const AplicarDose = () => {
       .patch(`pessoas/${id}`, {dose})
       .then((res) => {
         alert('Editado com sucesso!');
-        navigation.navigate('Home');
+        navigation.navigate('Home', {data: user});
       })
       .catch((err) => alert('Erro ao adicionar' + err));
   };

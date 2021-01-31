@@ -3,19 +3,23 @@ import {FlatList, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {api} from '../service/api';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
 const Home = () => {
   const [pessoas, setPessoas] = useState([]);
 
   const navigation = useNavigation();
 
+  const route = useRoute();
+
+  const user = route.params?.data;
+
   useEffect(() => {
     api
       .get('pessoas')
       .then((res) => setPessoas(res.data))
       .catch((err) => alert(`Erro ao carregar ${err}`));
-  }, [pessoas]);
+  }, [user]);
 
   return (
     <View>
