@@ -122,8 +122,8 @@ const ListaPessoas = () => {
           </View>
         </TouchableOpacity>
       </View>
-      {dose?.length > 2 ? (
-        <Text>Aplicado</Text>
+      {dose?.length >= 2 ? (
+        <Text></Text>
       ) : (
         <TouchableOpacity
           style={styles.btnVacinar}

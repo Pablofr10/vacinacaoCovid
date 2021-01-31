@@ -83,13 +83,13 @@ const AplicarDose = () => {
           Aplicar
         </Text>
       </TouchableOpacity>
-      <View style={styles.itemsGroup}>
+      <View>
         {dose.map((x) => (
           <View>
             <Text key={x.id} style={{fontSize: 18, textAlign: 'center'}}>
               {x.id == 1 ? 'Primeira' : 'Segunda'} Dose
             </Text>
-            <Text>
+            <Text style={{alignSelf: 'center'}}>
               {x.local} {x.data} {x.hora}
             </Text>
           </View>
