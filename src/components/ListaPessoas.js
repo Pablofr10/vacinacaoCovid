@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {FlatList, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation, useRoute} from '@react-navigation/native';
+import {api} from '../../service/api';
 
 const ListaPessoas = () => {
   const [pessoa, setPessoa] = useState({});
@@ -19,6 +20,17 @@ const ListaPessoas = () => {
 
   const editar = () => {
     navigation.navigate('EditarPessoas', {data: user});
+  };
+
+  const deletar = () => {
+    console.log(pessoa.id);
+    api
+      .delete(`pessoas/${pessoa.id}`)
+      .then((res) => {
+        alert('Excluido com sucesso');
+        navigation.navigate('Home');
+      })
+      .catch((err) => alert(`Erro ao excluir ${err}`));
   };
 
   return (
@@ -98,7 +110,7 @@ const ListaPessoas = () => {
             <Text style={{color: '#fff', fontSize: 22}}>Editar</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btnExcluir} onPress={() => editar}>
+        <TouchableOpacity style={styles.btnExcluir} onPress={deletar}>
           <View style={styles.itemsGroup}>
             <Icon
               style={{marginRight: 8}}
