@@ -26,7 +26,6 @@
       "id": "2",
       "nome": "Lucas",
       "cpf": "00022255588",
-
       "idade": 22,
       "grupo_risco": true,
       "sintomas": false,
@@ -50,6 +49,32 @@
       "bairro": "centro",
       "cidade": "Belo Horizonte",
       "estado": "Minas Gerais"
+    },
+    {
+      "nome": "Pablo Rafael Oliveira ",
+      "idade": "",
+      "cpf": "05052842350",
+      "grupo_risco": false,
+      "sintomas": "False",
+      "cidade": "Belo Horizonte",
+      "bairro": "Centro",
+      "rua": "Quadra 17",
+      "numero": "718",
+      "estado": "Minas Gerais",
+      "id": "ffy7vxY"
+    },
+    {
+      "nome": "Marcos da Silva",
+      "idade": "",
+      "cpf": "5231521521512",
+      "grupo_risco": "25",
+      "sintomas": "False",
+      "cidade": "Belo Horizonte",
+      "bairro": "Centro",
+      "rua": "Quadra 16 Lote 65",
+      "numero": "718",
+      "estado": "Minas Gerais",
+      "id": "VmYirv5"
     }
   ]
 }
